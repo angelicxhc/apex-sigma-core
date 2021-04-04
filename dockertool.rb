@@ -38,7 +38,6 @@ def push
   @tags.each do |tag|
     ChildProcess.build("docker", "push", tag).tap do |p|
       p.io.stdout = $stdout
-      p.io.stderr = $stderr
       p.start
       p.wait
     end
